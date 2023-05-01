@@ -1,11 +1,10 @@
+import { Search } from "../search/search";
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiAstronautHelmet } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
-import { Search } from "../search/search";
-
-export const Header = () => {
+const Header = () => {
   const [searchBlockOpened, setSearchBlockOpened] = useState(false);
   return (
     <header className="header">
@@ -52,3 +51,4 @@ export const Header = () => {
     </header>
   );
 };
+export default Header;

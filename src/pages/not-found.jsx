@@ -1,8 +1,7 @@
+import { NotFoundBlock } from "../components/not-found-block";
 import { Link } from "react-router-dom";
 
-import { NotFoundBlock } from "../components/not-found-block";
-
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <div className="not-found-page">
       <NotFoundBlock />
@@ -12,3 +11,4 @@ export const NotFound = () => {
     </div>
   );
 };
+export default NotFound;
