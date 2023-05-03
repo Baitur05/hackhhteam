@@ -1,7 +1,6 @@
-import "./Register.scss";
-
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContextProvider";
+import "./Register.scss";
 
 const Register = () => {
   const auth = useAuth();
