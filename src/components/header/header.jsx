@@ -12,19 +12,16 @@ const Header = () => {
         <div className="header__nav">
           <ul>
             <li>
-              <Link to="/products">Products</Link>
+              <Link to="/products">Вакансии</Link>
             </li>
             <li>
-              <Link to="/dealers">Dealers</Link>
-            </li>
-            <li>
-              <Link to="/contacts">Contacts</Link>
+              <Link to="/dealers">Контакты</Link>
             </li>
           </ul>
         </div>
 
         <Link className="header__logo" to="/">
-          <img src="assets/images/logo.png" />
+          LOGO
         </Link>
 
         {searchBlockOpened && (
@@ -38,12 +35,12 @@ const Header = () => {
               onClick={() => setSearchBlockOpened(true)}
             />
           </li>
-          <li style={{ fontSize: "16px", fontWeight: 700 }}>
-            <Link to="/register">Register</Link>
+          <li style={{ fontSize: "16px", fontWeight: 400 }}>
+            <Link to="/register">Регистрация </Link>
           </li>
           <li>
             <Link to="/login" className="header__cart__price">
-              <GiAstronautHelmet width={16} hanging={16} />
+              Вход
             </Link>
           </li>
         </ul>
