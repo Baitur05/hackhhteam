@@ -19,7 +19,7 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${API}/account/register/`, formData);
       //   console.log(res);
       navigate("/register-success");
-    } catch (error) {
+    } catch (error) { 
       setError(Object.values(error.response.data).flat(2));
     } finally {
       setLoading(false);

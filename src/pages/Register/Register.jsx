@@ -13,7 +13,7 @@ const Register = () => {
   // const [successMessage, setSuccessMessage] = useState(false);
 
   const { handleRegister, error, loading, setError } = auth ?? {};
-  console.log(handleRegister);
+  // console.log(handleRegister);
   function handleSave(e) {
     e.preventDefault();
     if (
