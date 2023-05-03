@@ -1,7 +1,6 @@
-import "./Register.scss";
-
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContextProvider";
+import "./Register.scss";
 
 const Register = () => {
   const auth = useAuth();
@@ -14,7 +13,7 @@ const Register = () => {
   // const [successMessage, setSuccessMessage] = useState(false);
 
   const { handleRegister, error, loading, setError } = auth ?? {};
-  console.log(handleRegister);
+  // console.log(handleRegister);
   function handleSave(e) {
     e.preventDefault();
     if (
