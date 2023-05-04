@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContextProvider";
-// import Loader from "../loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ const LoginPage = () => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
       alert("заполнете все поля");
-    } else {
+    } else {  
       let formData = new FormData();
       formData.append("email", email);
       formData.append("password", password);
@@ -24,9 +24,9 @@ const LoginPage = () => {
     setError(false);
   }, []);
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div>

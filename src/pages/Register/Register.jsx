@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContextProvider";
 import "./Register.scss";
+import Loader from "../../components/Loader/Loader";
 
 const Register = () => {
   const auth = useAuth();
@@ -38,7 +39,9 @@ const Register = () => {
   useEffect(() => {
     setError(false);
   }, []);
-
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div>
       <h1>Register</h1>
