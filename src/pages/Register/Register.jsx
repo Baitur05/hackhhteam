@@ -8,7 +8,7 @@ const Register = () => {
   const [first_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [password_сonfirm, setPasswordConfirm] = useState("");
   // const [errorMessage, setErrorMessage] = useState("");
   // const [successMessage, setSuccessMessage] = useState(false);
 
@@ -21,7 +21,7 @@ const Register = () => {
       !first_name.trim() ||
       !email.trim() ||
       !password.trim() ||
-      !passwordConfirm.trim()
+      !password_сonfirm.trim()
     ) {
       alert("заполните все поля");
     } else {
@@ -30,7 +30,7 @@ const Register = () => {
       formData.append("first_name", first_name);
       formData.append("email", email);
       formData.append("password", password);
-      formData.append("password2", passwordConfirm);
+      formData.append("password_confirm", password_сonfirm);
       handleRegister(formData);
     }
   }

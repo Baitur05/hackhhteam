@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API = "http://35.203.22.39/api/v1";
+const API = "http://35.203.22.39";
 export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 const AuthContextProvider = ({ children }) => {
@@ -19,7 +19,7 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${API}/account/register/`, formData);
       //   console.log(res);
       navigate("/register-success");
-    } catch (error) { 
+    } catch (error) {
       setError(Object.values(error.response.data).flat(2));
     } finally {
       setLoading(false);
