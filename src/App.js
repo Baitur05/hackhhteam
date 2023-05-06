@@ -8,6 +8,8 @@ import LoginPage from "./pages/Login/LoginPage";
 import Products from "./pages/products";
 import Header from "./components/header/header";
 import NotFound from "./pages/not-found";
+import Profiles from "./pages/Profiles/Profile";
+import EditProfile from "./pages/Profiles/EditProfile";
 
 export const SearchContext = createContext();
 
@@ -24,6 +26,9 @@ export const App = () => {
               <Route path="/products" element={<Products />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="profile" element={<Profiles />} />
+              <Route path="/editprofile/:id" element={<EditProfile />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
