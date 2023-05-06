@@ -46,8 +46,8 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
 
       const config = {
         headers: {
@@ -56,11 +56,11 @@ const AuthContextProvider = ({ children }) => {
       };
 
       const res = await axios.post(`${API}/account/refresh/`, {
-        refresh: tokens.refresh,
+        refresh: token.refresh,
         config,
       });
       localStorage.setItem(
-        "tokens",
+        "token",
         JSON.stringify({
           access: res.data.access,
           refresh: res.data.refresh,

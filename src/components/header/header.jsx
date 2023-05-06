@@ -3,8 +3,10 @@ import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiAstronautHelmet } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const Header = () => {
+  const { handleLogout } = useAuth();
   const [searchBlockOpened, setSearchBlockOpened] = useState(false);
   return (
     <header className="header">
@@ -19,6 +21,9 @@ const Header = () => {
             </li>
             <li>
               <Link to="/profile">Профиль</Link>
+            </li>
+            <li>
+              <Link to="/companies">Компании</Link>
             </li>
           </ul>
         </div>
@@ -45,6 +50,9 @@ const Header = () => {
             <Link to="/login" className="header__cart__price">
               Вход
             </Link>
+          </li>
+          <li>
+            <button onClick={handleLogout}>Выйти</button>
           </li>
         </ul>
       </div>
