@@ -30,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/account/login/`, formData);
-      localStorage.setItem("tokens", JSON.stringify(res.data));
+      localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("email", email);
       setUser(email);
       console.log(email);
@@ -77,7 +77,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("tokens");
+    localStorage.removeItem("token");
     localStorage.removeItem("email");
     setUser(false);
     navigate("/login");
