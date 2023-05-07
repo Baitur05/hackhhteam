@@ -123,7 +123,7 @@ const ResumeContextProvider = ({ children }) => {
         },
       };
 
-      const res = await axios.post(`${API_RESUMES}`, product, config);
+      const res = await axios.post(`${API_RESUMES}create/`, product, config);
       console.log(res.data);
       // navigate("/");
     } catch (error) {

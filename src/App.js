@@ -13,6 +13,7 @@ import EditProfile from "./pages/Profiles/EditProfile";
 import AddCompany from "./pages/company/AddCompany";
 import AddResumes from "./pages/Resumes/AddResumes";
 import ResumesList from "./pages/Resumes/ResumesList";
+import CompanyList from "./pages/company/CompanyList";
 
 export const SearchContext = createContext();
 
@@ -31,9 +32,11 @@ export const App = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="profile" element={<Profiles />} />
               <Route path="/editprofile/:id" element={<EditProfile />} />
-              <Route path="companies" element={<AddCompany />} />
+              <Route path="addcompany" element={<AddCompany />} />
               <Route path="resume" element={<ResumesList />} />
               <Route path="addresume" element={<AddResumes />} />
+              <Route path="companies" element={<CompanyList />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

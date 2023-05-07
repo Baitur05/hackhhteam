@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import { useCompany } from "../../context/CompanyContextProvider";
 import { useSearchParams } from "react-router-dom";
 import { useResume } from "../../context/ResumeContextProvider";
+import jwt_decode from "jwt-decode";
 
 const AddResumes = () => {
   const { addResume, getResumes, resumes, token } = useResume();
@@ -21,10 +22,12 @@ const AddResumes = () => {
       Authorization,
     },
   };
-  //   const tokenn = token;
-  //   console.log(tokenn);
+  const decoded = jwt_decode(Authorization);
+  // console.log(decoded);
+  const userId = decoded.user_id;
+  // console.log(userId);
   const [resume, setResume] = useState({
-    user: config,
+    user: userId,
     first_name: "",
     last_name: "",
     title: "",
@@ -80,16 +83,6 @@ const AddResumes = () => {
   }
   return (
     <div>
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="user"
-        variant="outlined"
-        fullWidth
-        name="user"
-        value={company.user}
-        onChange={handleChange}
-      /> */}
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
@@ -120,7 +113,7 @@ const AddResumes = () => {
         value={resume.title}
         onChange={handleChange}
       />
-      <TextField
+      {/* <TextField
         sx={{ m: 1 }}
         id="standart-basic"
         label="specialization"
@@ -129,7 +122,22 @@ const AddResumes = () => {
         name="specialization"
         value={resume.specialization}
         onChange={handleChange}
-      />
+      /> */}
+      {/* //////////// */}
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">specialization</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.specialization}
+          name="specialization"
+          label="specialization"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>react</MenuItem>
+        </Select>
+      </FormControl>
+      {/* ////////////////////////// */}
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
@@ -150,12 +158,18 @@ const AddResumes = () => {
         value={resume.location}
         onChange={handleChange}
       />
-      <TextField
+      {/* <TextField
         sx={{ m: 1 }}
         id="standart-basic"
         label="birthday"
         variant="outlined"
         fullWidth
+        name="birthday"
+        value={resume.birthday}
+        onChange={handleChange}
+      /> */}
+      <input
+        type="date"
         name="birthday"
         value={resume.birthday}
         onChange={handleChange}
@@ -180,7 +194,7 @@ const AddResumes = () => {
         value={resume.summary}
         onChange={handleChange}
       />
-      <TextField
+      {/* <TextField
         sx={{ m: 1 }}
         id="standart-basic"
         label="place_of_work"
@@ -189,17 +203,22 @@ const AddResumes = () => {
         name="place_of_work"
         value={resume.place_of_work}
         onChange={handleChange}
-      />
-      <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="job_experiences"
-        variant="outlined"
-        fullWidth
-        name="job_experiences"
-        value={resume.job_experiences}
-        onChange={handleChange}
-      />
+      /> */}
+      {/* //////////////// */}
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">place_of_work</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.place_of_work}
+          name="place_of_work"
+          label="place_of_work"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>react: react (react)</MenuItem>
+        </Select>
+      </FormControl>
+      {/* ////////////////// */}
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">employment</InputLabel>
         <Select
@@ -226,13 +245,10 @@ const AddResumes = () => {
           id="demo-simple-select"
           value={resume.schedule}
           name="schedule"
-          label="Age"
+          label="schedule"
           onChange={handleChange}
         >
-          <MenuItem value={"individual not oficial"}>
-            individual not oficial
-          </MenuItem>
-          <MenuItem value={"indivifulldual prof"}>full-day</MenuItem>
+          <MenuItem value={"full-day"}>full-day</MenuItem>
           <MenuItem value={"part-day"}>part-day</MenuItem>
           <MenuItem value={"shift-work"}>shift-work</MenuItem>
           <MenuItem value={"flexible-schedule"}>flexible-schedule</MenuItem>
