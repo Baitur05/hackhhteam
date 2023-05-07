@@ -11,6 +11,8 @@ import NotFound from "./pages/not-found";
 import Profiles from "./pages/Profiles/Profile";
 import EditProfile from "./pages/Profiles/EditProfile";
 import AddCompany from "./pages/company/AddCompany";
+import AddResumes from "./pages/Resumes/AddResumes";
+import ResumesList from "./pages/Resumes/ResumesList";
 
 export const SearchContext = createContext();
 
@@ -30,6 +32,8 @@ export const App = () => {
               <Route path="profile" element={<Profiles />} />
               <Route path="/editprofile/:id" element={<EditProfile />} />
               <Route path="companies" element={<AddCompany />} />
+              <Route path="resume" element={<ResumesList />} />
+              <Route path="addresume" element={<AddResumes />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

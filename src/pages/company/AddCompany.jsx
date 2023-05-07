@@ -2,20 +2,27 @@ import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useCompany } from "../../context/CompanyContextProvider";
 import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const AddCompany = () => {
   const { addCompany, getCompanies, companies, token } = useCompany();
+  //   const { userId } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const [profilePage, setProfilePage] = useState(false);
-  //   console.log(token);
+  const tokendata = `Bearer ${token.access}`;
+  const userId = token;
+  const userID = userId;
+  console.log(userId);
+
   const [company, setCompany] = useState({
     name: "",
     company: "",
     city: "",
     location: "",
-    user: token,
+    user: userId,
     specialization: "",
   });
+  console.log(userId);
   console.log(company);
 
   useEffect(() => {

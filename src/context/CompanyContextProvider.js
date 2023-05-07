@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API_COMPANIES } from "../api/Api";
 
 export const companyContext = createContext();
@@ -96,6 +96,7 @@ const CompanyContextProvider = ({ children }) => {
     }
   }
   const token = JSON.parse(localStorage.getItem("token"));
+  const currentUser = token ? token.userid : null;
 
   const value = {
     messages: state.messagesArray,
@@ -107,6 +108,7 @@ const CompanyContextProvider = ({ children }) => {
     //  editMessage,
     token,
     addCompany,
+    currentUser,
   };
   return (
     <companyContext.Provider value={value}>{children}</companyContext.Provider>
