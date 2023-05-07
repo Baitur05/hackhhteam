@@ -8,6 +8,7 @@ import { store } from "./redux/store";
 import AuthContextProvider from "./context/AuthContextProvider";
 import ProfileContextProvider from "./context/ProfileContextProvider";
 import CompanyContextProvider from "./context/CompanyContextProvider";
+import ResumeContextProvider from "./context/ResumeContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,9 +18,11 @@ root.render(
       <AuthContextProvider>
         <ProfileContextProvider>
           <CompanyContextProvider>
-            <Provider store={store}>
-              <App />
-            </Provider>
+            <ResumeContextProvider>
+              <Provider store={store}>
+                <App />
+              </Provider>
+            </ResumeContextProvider>
           </CompanyContextProvider>
         </ProfileContextProvider>
       </AuthContextProvider>

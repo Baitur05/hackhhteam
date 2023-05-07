@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API_COMPANIES } from "../api/Api";
 
 export const companyContext = createContext();
@@ -15,13 +15,11 @@ const INIT_STATE = {
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_COMPANIES":
-      console.log("get companies");
       return {
         ...state,
-        companiesArray: action.payload,
+        companyArray: action.payload,
       };
     case "GET_ONE_COMPANY":
-      console.log("one");
       return { ...state, oneCompany: action.payload };
     default:
       console.log("default");
@@ -96,9 +94,9 @@ const CompanyContextProvider = ({ children }) => {
     }
   }
   const token = JSON.parse(localStorage.getItem("token"));
-
+  const userEmail = localStorage.getItem("email");
   const value = {
-    messages: state.messagesArray,
+    companyArray: state.companyArray,
     oneCompany: state.oneCompany,
     getCompanies,
     //  deleteMessage,
@@ -107,6 +105,7 @@ const CompanyContextProvider = ({ children }) => {
     //  editMessage,
     token,
     addCompany,
+    userEmail,
   };
   return (
     <companyContext.Provider value={value}>{children}</companyContext.Provider>

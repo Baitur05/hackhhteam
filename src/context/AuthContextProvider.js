@@ -7,6 +7,7 @@ export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -34,6 +35,9 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("email", email);
       setUser(email);
       console.log(email);
+      console.log(res);
+
+      // setUserId(response.data.access.userId);
       navigate("/");
     } catch (error) {
       setError(error.response.data.detail);
@@ -41,7 +45,6 @@ const AuthContextProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
   const checkAuth = async () => {
     setLoading(true);
 
@@ -91,6 +94,7 @@ const AuthContextProvider = ({ children }) => {
     setError,
     loading,
     handleLogout,
+    userId,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_CATEGORY, API_PRODUCTS, API_REVIEWS } from "../../const";
+import { API_RESUMES } from "../api/Api";
 
 export const resumeContext = createContext();
 
-export const useProduct = () => useContext(resumeContext);
+export const useResume = () => useContext(resumeContext);
 
 const INIT_STATE = {
   resumes: [],
@@ -58,26 +58,6 @@ const ResumeContextProvider = ({ children }) => {
     } catch (error) {}
   }
 
-  //   async function getCategories() {
-  //     try {
-  //       const token = JSON.parse(localStorage.getItem("token"));
-  //       const Authorization = `Bearer ${token.access}`;
-  //       const config = {
-  //         headers: {
-  //           Authorization,
-  //         },
-  //       };
-  //       const res = await axios(`${API_CATEGORY}list/`, config);
-  //       dispatch({
-  //         type: "GET_CATEGORIES",
-  //         payload: res.data.results,
-  //       });
-  //     } catch (error) {
-  //       console.log(error);
-  //       setError(error);
-  //     }
-  //   }
-
   async function getOneResume(id) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -98,23 +78,23 @@ const ResumeContextProvider = ({ children }) => {
     }
   }
 
-  async function editProduct(id, product) {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.patch(`${API_PRODUCTS}${id}/`, product, config);
-      getResumes();
-      navigate("/products");
-    } catch (e) {
-      console.log(e);
-      setError(e);
-    }
-  }
+  //   async function editProduct(id, product) {
+  //     try {
+  //       const token = JSON.parse(localStorage.getItem("token"));
+  //       const Authorization = `Bearer ${token.access}`;
+  //       const config = {
+  //         headers: {
+  //           Authorization,
+  //         },
+  //       };
+  //       const res = await axios.patch(`${API_RESUMES}${id}/`, product, config);
+  //       getResumes();
+  //       navigate("/products");
+  //     } catch (e) {
+  //       console.log(e);
+  //       setError(e);
+  //     }
+  //   }
 
   async function deleteResume(id) {
     try {
@@ -133,7 +113,7 @@ const ResumeContextProvider = ({ children }) => {
     }
   }
 
-  async function addResumes(product) {
+  async function addResume(product) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -143,7 +123,7 @@ const ResumeContextProvider = ({ children }) => {
         },
       };
 
-      const res = await axios.post(`${API_RESUMES}`, product, config);
+      const res = await axios.post(`${API_RESUMES}create/`, product, config);
       console.log(res.data);
       // navigate("/");
     } catch (error) {
@@ -152,35 +132,16 @@ const ResumeContextProvider = ({ children }) => {
     }
   }
 
-  //   async function toggleLike(id) {
-  //     try {
-  //       const token = JSON.parse(localStorage.getItem("token"));
-  //       const Authorization = `Bearer ${token.access}`;
-  //       const config = {
-  //         headers: {
-  //           Authorization,
-  //         },
-  //       };
-  //       const res = await axios(`${API_PRODUCTS}${id}/toggle_like/`, config);
-  //       getProducts();
-  //     } catch (e) {
-  //       console.log(e);
-  //       setError(e);
-  //     }
-  //   }
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const value = {
     resumes: state.resumes,
-    //  pages: state.pages,
-    //  categories: state.categories,
     oneResume: state.oneResume,
     getResumes,
     deleteResume,
     getOneResume,
-    //  editResume,
-    addResumes,
-    //  getCategories,
-    //  toggleLike,
+    addResume,
+    token,
   };
 
   return (

@@ -1,22 +1,22 @@
 import { Box, Pagination } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useCompany } from "../../context/CompanyContextProvider";
-import Company from "./Company";
+import { useResume } from "../../context/ResumeContextProvider";
+import Resume from "./Resume";
 
-const CompanyList = () => {
-  const { getCompanies, companyArray } = useCompany();
-  const [searchParams, setSearchParams] = useSearchParams();
+const ResumesList = () => {
+  const { getResumes, resumes } = useResume();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    getCompanies();
+    getResumes();
   }, []);
 
-  useEffect(() => {
-    getCompanies();
-  }, [searchParams]);
-  const companiess = companyArray;
-  console.log(companiess);
+  // useEffect(() => {
+  //   getResumes();
+  // }, [searchParams]);
+
+  console.log(resumes);
 
   return (
     <Box
@@ -27,8 +27,7 @@ const CompanyList = () => {
         flexDirection: "column",
       }}
     >
-      <Link to="/addcompany">add company</Link>
-
+      <Link to="/addresume">add resume</Link>
       <Box
         sx={{
           display: "flex",
@@ -37,12 +36,12 @@ const CompanyList = () => {
           flexWrap: "wrap",
         }}
       >
-        {companyArray?.map((item) => (
-          <Company key={item.id} item={item} />
+        {resumes.map((item, index) => (
+          <Resume key={index} item={item} />
         ))}
       </Box>
     </Box>
   );
 };
 
-export default CompanyList;
+export default ResumesList;
