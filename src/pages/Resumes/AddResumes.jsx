@@ -17,11 +17,6 @@ const AddResumes = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [profilePage, setProfilePage] = useState(false);
   const Authorization = `Bearer ${token.access}`;
-  const config = {
-    headers: {
-      Authorization,
-    },
-  };
   const decoded = jwt_decode(Authorization);
   // console.log(decoded);
   const userId = decoded.user_id;
@@ -158,16 +153,6 @@ const AddResumes = () => {
         value={resume.location}
         onChange={handleChange}
       />
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="birthday"
-        variant="outlined"
-        fullWidth
-        name="birthday"
-        value={resume.birthday}
-        onChange={handleChange}
-      /> */}
       <input
         type="date"
         name="birthday"
@@ -266,7 +251,7 @@ const AddResumes = () => {
         value={resume.work_experience}
         onChange={handleChange}
       />
-      <TextField
+      {/* <TextField
         sx={{ m: 1 }}
         id="standart-basic"
         label="native_language"
@@ -275,7 +260,20 @@ const AddResumes = () => {
         name="native_language"
         value={resume.native_language}
         onChange={handleChange}
-      />
+      /> */}
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">native_language</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.native_language}
+          name="native_language"
+          label="native_language"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>русский</MenuItem>
+        </Select>
+      </FormControl>
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"

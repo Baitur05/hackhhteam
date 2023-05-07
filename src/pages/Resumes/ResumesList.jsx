@@ -1,27 +1,22 @@
 import { Box, Pagination } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useResume } from "../../context/ResumeContextProvider";
+import Resume from "./Resume";
 
 const ResumesList = () => {
-  //   const { getProducts, products, pages } = useProduct();
-  //   const [currentPage, setCurrentPage] = useState(1);
-  //   const [searchParams, setSearchParams] = useSearchParams();
+  const { getResumes, resumes } = useResume();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
-  //   useEffect(() => {
-  //     getProducts();
-  //   }, []);
+  useEffect(() => {
+    getResumes();
+  }, []);
 
-  //   useEffect(() => {
-  //     getProducts();
-  //   }, [searchParams]);
+  // useEffect(() => {
+  //   getResumes();
+  // }, [searchParams]);
 
-  //   useEffect(() => {
-  //     setSearchParams({
-  //       page: currentPage,
-  //     });
-  //   }, [currentPage]);
-
-  //   console.log(products);
+  console.log(resumes);
 
   return (
     <Box
@@ -32,7 +27,8 @@ const ResumesList = () => {
         flexDirection: "column",
       }}
     >
-      {/* <Box
+      <Link to="/addresume">add resume</Link>
+      <Box
         sx={{
           display: "flex",
           alignItems: "center",
@@ -40,11 +36,10 @@ const ResumesList = () => {
           flexWrap: "wrap",
         }}
       >
-        {products.map((item) => (
-          <ProductCard key={item.id} item={item} />
+        {resumes.map((item, index) => (
+          <Resume key={index} item={item} />
         ))}
-      </Box> */}
-      <Link to="/addresume">add resume</Link>
+      </Box>
     </Box>
   );
 };
