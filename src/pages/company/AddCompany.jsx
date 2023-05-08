@@ -32,6 +32,7 @@ const AddCompany = () => {
 
   const [company, setCompany] = useState({
     name: "",
+    description: "",
     company: "",
     city: "",
     location: "",
@@ -57,6 +58,7 @@ const AddCompany = () => {
   function handleSave() {
     let formData = new FormData();
     formData.append("name", company.name);
+    formData.append("description", company.description);
     formData.append("city", company.city);
     formData.append("location", company.location);
     formData.append("user", company.user);
@@ -78,6 +80,16 @@ const AddCompany = () => {
         fullWidth
         name="name"
         value={company.name}
+        onChange={handleChange}
+      />
+      <TextField
+        sx={{ m: 1 }}
+        id="standart-basic"
+        label="description"
+        variant="outlined"
+        fullWidth
+        name="description"
+        value={company.description}
         onChange={handleChange}
       />
       <TextField

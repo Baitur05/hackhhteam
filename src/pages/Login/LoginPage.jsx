@@ -30,21 +30,37 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h1>Login Page</h1>
       {error ? <h2>{error}</h2> : null}
-      <form action="submit" onSubmit={handleSave}>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="email"
-        />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="password"
-        />
-        <button>Login</button>
-      </form>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <form action="submit" onSubmit={handleSave}>
+          <h1 style={{ margin: "0 0 50px 0" }}>Login</h1>
+          <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "300px",
+              margin: "0 0 30px 0",
+              display: "flex",
+            }}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="email"
+          />
+          <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "300px",
+            }}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="password"
+          />
+          <button>Login</button>
+        </form>
+      </div>
     </div>
   );
 };

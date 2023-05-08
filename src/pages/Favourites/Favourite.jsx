@@ -10,21 +10,19 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Company = ({ item }) => {
+const Favourite = ({ item }) => {
   return (
-    <Card sx={{ width: 545, margin: "3%" }}>
+    <Card sx={{ width: 345, margin: "3%" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Название: {item.name}
         </Typography>
       </CardContent>
       <Link to={`/onecompany/${item.id}`}>
-        <Button sx={{ m: "0 0 10px 10px" }} size="small">
-          Подробнее
-        </Button>
+        <Button size="small">see</Button>
       </Link>
     </Card>
   );
 };
 
-export default Company;
+export default Favourite;

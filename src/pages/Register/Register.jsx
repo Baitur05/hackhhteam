@@ -40,13 +40,21 @@ const Register = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       {error ? <h2>{error}</h2> : null}
       <form onSubmit={handleSave}>
+        <h1 style={{ margin: "0 0 30px 0" }}>Register</h1>
         <label>
           Имя:
           <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "500px",
+              margin: "0 0 15px 0",
+              display: "flex",
+            }}
             onChange={(e) => setFirstName(e.target.value)}
             type="text"
             placeholder="first name"
@@ -55,6 +63,14 @@ const Register = () => {
         <label>
           Фамилия:
           <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "500px",
+              margin: "0 0 15px 0",
+              display: "flex",
+            }}
             onChange={(e) => setLastName(e.target.value)}
             type="text"
             placeholder="last name"
@@ -63,6 +79,14 @@ const Register = () => {
         <label>
           Email:
           <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "500px",
+              margin: "0 0 15px 0",
+              display: "flex",
+            }}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="email"
@@ -71,6 +95,14 @@ const Register = () => {
         <label>
           Пароль:
           <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "500px",
+              margin: "0 0 15px 0",
+              display: "flex",
+            }}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="password"
@@ -79,6 +111,14 @@ const Register = () => {
         <label>
           Подтверждение пароля:
           <input
+            style={{
+              padding: "10px",
+              border: "none",
+              background: "lightgray",
+              width: "500px",
+              margin: "0 0 15px 0",
+              display: "flex",
+            }}
             onChange={(e) => setPasswordConfirm(e.target.value)}
             type="password"
             placeholder="confirm password"

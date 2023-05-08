@@ -4,6 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GiAstronautHelmet } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
+import { Typography } from "@mui/material";
 
 const Header = () => {
   const { handleLogout } = useAuth();
@@ -14,11 +15,11 @@ const Header = () => {
         <div className="header__nav">
           <ul>
             <li>
-              <Link to="/products">Вакансии</Link>
+              <Link to="/vacancy">Вакансии</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/dealers">Контакты</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/profile">Профиль</Link>
             </li>
@@ -32,7 +33,7 @@ const Header = () => {
         </div>
 
         <Link className="header__logo" to="/">
-          LOGO
+          <img src={require("../../img/hhlogo.png")} alt="" />
         </Link>
 
         {searchBlockOpened && (
@@ -55,7 +56,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <button onClick={handleLogout}>Выйти</button>
+            <Typography onClick={handleLogout}>Выйти</Typography>
           </li>
         </ul>
       </div>

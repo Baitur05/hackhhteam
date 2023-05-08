@@ -37,7 +37,12 @@ const AddResumes = () => {
     schedule: "",
     work_experience: "",
     native_language: "",
+    is_looking_for_job: "",
+    gender: "",
+    salary: "",
+
     about_me: "",
+    education: "",
   });
   console.log(resume);
 
@@ -72,7 +77,12 @@ const AddResumes = () => {
     formData.append("schedule", resume.schedule);
     formData.append("work_experience", resume.work_experience);
     formData.append("native_language", resume.native_language);
+    formData.append("is_looking_for_job", resume.is_looking_for_job);
+    formData.append("gender", resume.gender);
+    formData.append("salary", resume.salary);
+
     formData.append("about_me", resume.about_me);
+    formData.append("education", resume.education);
 
     addResume(formData);
   }
@@ -81,7 +91,7 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="first_name"
+        label="Имя"
         variant="outlined"
         fullWidth
         name="first_name"
@@ -91,7 +101,7 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="last_name"
+        label="Фамилия"
         variant="outlined"
         fullWidth
         name="last_name"
@@ -101,26 +111,15 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="title"
+        label="Заголовок"
         variant="outlined"
         fullWidth
         name="title"
         value={resume.title}
         onChange={handleChange}
       />
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="specialization"
-        variant="outlined"
-        fullWidth
-        name="specialization"
-        value={resume.specialization}
-        onChange={handleChange}
-      /> */}
-      {/* //////////// */}
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">specialization</InputLabel>
+        <InputLabel id="demo-simple-select-label">Специализация</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -130,13 +129,18 @@ const AddResumes = () => {
           onChange={handleChange}
         >
           <MenuItem value={1}>react</MenuItem>
+          <MenuItem value={2}>Автомобильный бизнес</MenuItem>
+          <MenuItem value={3}>Административный персонал</MenuItem>
+          <MenuItem value={4}>Безопасность</MenuItem>
+          <MenuItem value={5}>Информационные технологии</MenuItem>
+          <MenuItem value={6}>Высший и средний менеджмент</MenuItem>
         </Select>
       </FormControl>
       {/* ////////////////////////// */}
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="city"
+        label="Город"
         variant="outlined"
         fullWidth
         name="city"
@@ -146,7 +150,7 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="location"
+        label="Местоположение"
         variant="outlined"
         fullWidth
         name="location"
@@ -162,7 +166,7 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="phone"
+        label="Номер телефона"
         variant="outlined"
         fullWidth
         name="phone"
@@ -172,26 +176,16 @@ const AddResumes = () => {
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
-        label="summary"
+        label="краткое описание"
         variant="outlined"
         fullWidth
         name="summary"
         value={resume.summary}
         onChange={handleChange}
       />
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="place_of_work"
-        variant="outlined"
-        fullWidth
-        name="place_of_work"
-        value={resume.place_of_work}
-        onChange={handleChange}
-      /> */}
       {/* //////////////// */}
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">place_of_work</InputLabel>
+        <InputLabel id="demo-simple-select-label">Место работы</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -200,7 +194,19 @@ const AddResumes = () => {
           label="place_of_work"
           onChange={handleChange}
         >
-          <MenuItem value={1}>react: react (react)</MenuItem>
+          <MenuItem value={1}>react</MenuItem>
+          <MenuItem value={2}>Автомойщик(Автомобильный бизнес)</MenuItem>
+          <MenuItem value={4}>
+            Автослесарь, автомеханик(Автомобильный бизнес)
+          </MenuItem>
+          <MenuItem value={5}>Мастер-приемщик(Автомобильный бизнес</MenuItem>
+          <MenuItem value={6}>
+            Менеджер по продажам, менеджер по работе с клиентами(Автомобильный
+            бизнес)
+          </MenuItem>
+          <MenuItem value={7}>
+            Администратор(Административный персонал)
+          </MenuItem>
         </Select>
       </FormControl>
       {/* ////////////////// */}
@@ -251,16 +257,6 @@ const AddResumes = () => {
         value={resume.work_experience}
         onChange={handleChange}
       />
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standart-basic"
-        label="native_language"
-        variant="outlined"
-        fullWidth
-        name="native_language"
-        value={resume.native_language}
-        onChange={handleChange}
-      /> */}
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">native_language</InputLabel>
         <Select
@@ -272,8 +268,51 @@ const AddResumes = () => {
           onChange={handleChange}
         >
           <MenuItem value={1}>русский</MenuItem>
+          <MenuItem value={2}>кыргызский</MenuItem>
         </Select>
       </FormControl>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">
+          is_looking_for_job
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.is_looking_for_job}
+          name="is_looking_for_job"
+          label="is_looking_for_job"
+          onChange={handleChange}
+        >
+          <MenuItem value={"yes"}>yes</MenuItem>
+          <MenuItem value={"no"}>no</MenuItem>
+          <MenuItem value={"considering"}>considering</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">gender</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.gender}
+          name="gender"
+          label="gender"
+          onChange={handleChange}
+        >
+          <MenuItem value={"male"}>male</MenuItem>
+          <MenuItem value={"female"}>female</MenuItem>
+        </Select>
+      </FormControl>
+
+      <TextField
+        sx={{ m: 1 }}
+        id="standart-basic"
+        label="salary"
+        variant="outlined"
+        fullWidth
+        name="salary"
+        value={resume.salary}
+        onChange={handleChange}
+      />
       <TextField
         sx={{ m: 1 }}
         id="standart-basic"
@@ -284,6 +323,19 @@ const AddResumes = () => {
         value={resume.about_me}
         onChange={handleChange}
       />
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">education</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={resume.education}
+          name="education"
+          label="education"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>bachelor</MenuItem>
+        </Select>
+      </FormControl>
       <Button
         sx={{
           color: "black",
