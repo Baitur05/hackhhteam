@@ -5,9 +5,11 @@ import { useCompany } from "../../context/CompanyContextProvider";
 import Company from "./Company";
 
 const CompanyList = () => {
-  const { getCompanies, companyArray } = useCompany();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { getCompanies, companyArray, pages } = useCompany();
+  // const [currentPage, setCurrentPage] = useState(1);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(currentPage);
   useEffect(() => {
     getCompanies();
   }, []);
@@ -18,16 +20,25 @@ const CompanyList = () => {
   const companiess = companyArray;
   console.log(companiess);
 
+  // useEffect(() => {
+  //   setSearchParams({
+  //     page: currentPage,
+  //   });
+  // }, [currentPage]);
+
   return (
     <Box
       sx={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
         flexDirection: "column",
       }}
     >
-      <Link to="/addcompany">add company</Link>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h2>Компании</h2>
+        <Link to="/addcompany">add company</Link>
+      </div>
 
       <Box
         sx={{

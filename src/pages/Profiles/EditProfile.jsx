@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useProfile } from "../../context/ProfileContextProvider";
 
 const EditProfile = () => {
@@ -39,7 +39,11 @@ const EditProfile = () => {
     formData.append("last_name", profile.last_name);
     formData.append("first_name", profile.first_name);
     formData.append("email", profile.email);
+    formData.append("phone_number", profile.phone_number);
+
     formData.append("education", profile.education);
+    formData.append("experience", profile.experience);
+
     editProfile(params.id, formData);
   }
 
@@ -60,16 +64,9 @@ const EditProfile = () => {
   return (
     <div>
       <Box style={style}>
-        <TextField
-          sx={{ m: 0, width: "400px" }}
-          id="standart-basic"
-          label="last_name"
-          variant="standard"
-          fullWidth
-          name="last_name"
-          value={profile.last_name}
-          onChange={handleChange}
-        />
+        <Typography sx={{ fontSize: 20, m: "0 0 0 20px" }}>
+          Личная Информация:
+        </Typography>
         <TextField
           sx={{ m: 3, width: "400px" }}
           id="standart-basic"
@@ -78,6 +75,16 @@ const EditProfile = () => {
           fullWidth
           name="first_name"
           value={profile.first_name}
+          onChange={handleChange}
+        />
+        <TextField
+          sx={{ m: 3, width: "400px" }}
+          id="standart-basic"
+          label="last_name"
+          variant="standard"
+          fullWidth
+          name="last_name"
+          value={profile.last_name}
           onChange={handleChange}
         />
         <TextField
@@ -100,7 +107,27 @@ const EditProfile = () => {
           value={profile.education}
           onChange={handleChange}
         />
-        <Button
+        <TextField
+          sx={{ m: 3, width: "400px" }}
+          id="standart-basic"
+          label="phone_number"
+          variant="standard"
+          fullWidth
+          name="phone_number"
+          value={profile.phone_number}
+          onChange={handleChange}
+        />
+        <TextField
+          sx={{ m: 3, width: "400px" }}
+          id="standart-basic"
+          label="experience"
+          variant="standard"
+          fullWidth
+          name="experience"
+          value={profile.experience}
+          onChange={handleChange}
+        />
+        {/* <Button
           sx={{
             color: "black",
             background: "#ae3559",
@@ -113,8 +140,20 @@ const EditProfile = () => {
           type="submit"
           onClick={handleSave}
         >
-          Edit Message
-        </Button>
+          Сохранить
+        </Button> */}
+        <button
+          style={{
+            padding: "10px",
+            background: "blue",
+            color: "white",
+            border: "10px ",
+            borderRadius: "10px",
+            margin: "0 0 0 20px",
+          }}
+        >
+          Сохранить
+        </button>
       </Box>
     </div>
   );

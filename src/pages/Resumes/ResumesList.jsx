@@ -22,22 +22,33 @@ const ResumesList = () => {
     <Box
       sx={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
         flexDirection: "column",
       }}
     >
-      <Link to="/addresume">add resume</Link>
+      <div
+        style={{
+          width: "1100px",
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "0 0 0 60px",
+        }}
+      >
+        <h2>Резюме</h2>
+        <Link to="/addresume">add resume</Link>
+      </div>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
+          direction: "column",
         }}
       >
-        {resumes.map((item, index) => (
-          <Resume key={index} item={item} />
+        {resumes.map((item) => (
+          <Resume key={item.id} item={item} />
         ))}
       </Box>
     </Box>

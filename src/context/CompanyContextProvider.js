@@ -9,6 +9,8 @@ export const useCompany = () => useContext(companyContext);
 
 const INIT_STATE = {
   companyArray: [],
+  // pages: 0,
+
   oneCompany: {},
 };
 
@@ -18,6 +20,7 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         companyArray: action.payload,
+        // pages: Math.ceil(action.payload.count / 3),
       };
     case "GET_ONE_COMPANY":
       return { ...state, oneCompany: action.payload };
@@ -97,6 +100,7 @@ const CompanyContextProvider = ({ children }) => {
   const userEmail = localStorage.getItem("email");
   const value = {
     companyArray: state.companyArray,
+    // pages: state.pages,
     oneCompany: state.oneCompany,
     getCompanies,
     //  deleteMessage,

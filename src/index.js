@@ -9,6 +9,7 @@ import AuthContextProvider from "./context/AuthContextProvider";
 import ProfileContextProvider from "./context/ProfileContextProvider";
 import CompanyContextProvider from "./context/CompanyContextProvider";
 import ResumeContextProvider from "./context/ResumeContextProvider";
+import VacancyContextProvider from "./context/VacancyContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,9 +20,11 @@ root.render(
         <ProfileContextProvider>
           <CompanyContextProvider>
             <ResumeContextProvider>
-              <Provider store={store}>
-                <App />
-              </Provider>
+              <VacancyContextProvider>
+                <Provider store={store}>
+                  <App />
+                </Provider>
+              </VacancyContextProvider>
             </ResumeContextProvider>
           </CompanyContextProvider>
         </ProfileContextProvider>

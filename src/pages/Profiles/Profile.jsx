@@ -28,14 +28,14 @@ const Profiles = () => {
       <Box
         sx={{
           height: "100px",
-          bgcolor: "#938888",
+          bgcolor: "black",
           display: "flex",
           //  justifyContent: "center",
           alignItems: "end",
           p: "0 0 0 200px ",
         }}
       >
-        <Typography variant="h3" component="h3">
+        <Typography variant="h3" component="h3" sx={{ color: "white" }}>
           Профиль
         </Typography>
       </Box>
