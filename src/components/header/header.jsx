@@ -4,7 +4,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GiAstronautHelmet } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
-import { Typography } from "@mui/material";
 
 const Header = () => {
   const { handleLogout } = useAuth();
@@ -17,9 +16,9 @@ const Header = () => {
             <li>
               <Link to="/vacancy">Вакансии</Link>
             </li>
-            {/* <li>
+            <li>
               <Link to="/dealers">Контакты</Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/profile">Профиль</Link>
             </li>
@@ -55,9 +54,9 @@ const Header = () => {
               Вход
             </Link>
           </li>
-          <li>
-            <Typography onClick={handleLogout}>Выйти</Typography>
-          </li>
+          {/* <li>
+            <button onClick={handleLogout}>Выйти</button>
+          </li> */}
         </ul>
       </div>
     </header>

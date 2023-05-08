@@ -180,10 +180,10 @@ const VacancyContextProvider = ({ children }) => {
     }
   }
 
-  const token = JSON.parse(localStorage.getItem("token"));
-  const Authorization = `Bearer ${token.access}`;
-  const decoded = jwt_decode(Authorization);
-  const userId = decoded.user_id;
+  // const token = JSON.parse(localStorage.getItem("token"));
+  // const Authorization = `Bearer ${token.access}`;
+  // const decoded = jwt_decode(Authorization);
+  // const userId = decoded.user_id;
   const value = {
     vacancies: state.vacancies,
     oneVacancy: state.oneVacancy,
@@ -193,8 +193,8 @@ const VacancyContextProvider = ({ children }) => {
     addVacancy,
     addFavourite,
     getFavourites,
-    token,
-    userId,
+    // token,
+    // userId,
   };
 
   return (
