@@ -17,10 +17,10 @@ const AddVacancy = () => {
   const { addVacancy, getVacancies, vacancies, token } = useVacancy();
   const [searchParams, setSearchParams] = useSearchParams();
   const [profilePage, setProfilePage] = useState(false);
-  const Authorization = `Bearer ${token.access}`;
-  const decoded = jwt_decode(Authorization);
+  // const Authorization = `Bearer ${token.access}`;
+  // const decoded = jwt_decode(Authorization);
   // console.log(decoded);
-  const userId = decoded.user_id;
+  // const userId = decoded.user_id;
   // console.log(userId);
   const [vacancy, setVacancy] = useState({
     user: "",
