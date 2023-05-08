@@ -16,7 +16,7 @@ import { useVacancy } from "../../context/VacancyContextProvider";
 import AddFavorite from "../Favourites/AddFavourite";
 
 const CurrVacancy = () => {
-  const { getOneVacancy, oneVacancy, userId } = useVacancy();
+  const { getOneVacancy, oneVacancy } = useVacancy();
   const [vacancy, setVacancy] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
